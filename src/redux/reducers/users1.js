@@ -58,9 +58,4 @@ function users(state = initialState, action) {
   return state;
 }
 
-// redux-saga
-function getUsersSaga(action) {
-  // generater 함수 만들기
-}
-
 export default users;

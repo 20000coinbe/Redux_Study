@@ -1,6 +1,6 @@
 import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
-import reducer from "./reducers/index";
+import reducer from "./modules/index";
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 import createSagaMiddleware from "redux-saga";

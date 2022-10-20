@@ -1,8 +1,11 @@
-import axios from "axios";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserList from "../components/UserList";
-import { getUsersFail, getUsersStart, getUsersThunk } from "../redux/actions";
+import {
+  getUsersFail,
+  getUsersStart,
+  getUsersThunk,
+} from "../redux/modules/users";
 
 const UserListContainer = () => {
   const users = useSelector((state) => state.users.data);
