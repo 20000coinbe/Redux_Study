@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UserList from "../components/UserList";
 import {
   getUsersFail,
+  getUsersSagaStart,
   getUsersStart,
   getUsersThunk,
 } from "../redux/modules/users";
@@ -44,7 +45,7 @@ const UserListContainer = () => {
   // );
 
   const getUsers = useCallback(() => {
-    dispatch(getUsersThunk());
+    dispatch(getUsersSagaStart()); //getUsersThunk()
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;

@@ -4,6 +4,9 @@ import reducer from "./modules/index";
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 import createSagaMiddleware from "redux-saga";
+import { createBrowserHistory } from "history";
+import { createReduxHistoryContext } from "redux-first-history";
+import rootSaga from "./modules/rootSaga";
 
 // function middleWare1(store) {
 //   console.log("middleWare1", 0);
@@ -37,11 +40,18 @@ import createSagaMiddleware from "redux-saga";
 //   };
 // }
 
+// const { createReduxHistory, routerMiddleware, routerReducer } =
+//   createReduxHistoryContext({
+//     history: createBrowserHistory(),
+//   });
+
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(thunk, promise, sagaMiddleware))
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
